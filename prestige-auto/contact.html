@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & RDV — Prestige Auto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo"><div class="nav-logo-icon">⚙</div>PRESTIGE<span>AUTO</span></div>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="nav-cta">Prendre RDV</a>
+    </div>
+  </nav>
+
+  <div style="padding:9rem 2rem 4rem;background:var(--noir-soft);border-bottom:2px solid var(--orange);">
+    <div class="container">
+      <span class="label">Prendre rendez-vous</span>
+      <h1 style="font-size:4rem;">Contact & <span style="color:var(--orange)">RDV</span></h1>
+      <div class="sep"><div class="sep-line"></div><div class="sep-diamond"></div></div>
+      <p style="color:var(--gris);max-width:600px;">Décrivez votre problème ou choisissez votre service. Réponse sous 2h en semaine.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORMULAIRE -->
+        <div>
+          <span class="label" style="margin-bottom:1.5rem;display:block;">Formulaire de rendez-vous</span>
+          <form id="rdvForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Prénom *</label>
+                <input type="text" name="prenom" required placeholder="Jean">
+              </div>
+              <div class="form-group">
+                <label>Nom *</label>
+                <input type="text" name="nom" required placeholder="Dupont">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Téléphone *</label>
+                <input type="tel" name="telephone" required placeholder="06 12 34 56 78">
+              </div>
+              <div class="form-group">
+                <label>Email *</label>
+                <input type="email" name="email" required placeholder="jean@exemple.fr">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Marque du véhicule *</label>
+                <input type="text" name="marque" required placeholder="Renault, Peugeot, BMW...">
+              </div>
+              <div class="form-group">
+                <label>Modèle & année</label>
+                <input type="text" name="modele" placeholder="Clio 5 — 2021">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service souhaité *</label>
+              <select name="service" required>
+                <option value="">Choisir un service...</option>
+                <option value="revision">Révision / Vidange</option>
+                <option value="freinage">Freinage</option>
+                <option value="distribution">Distribution / Courroie</option>
+                <option value="embrayage">Embrayage</option>
+                <option value="carrosserie">Carrosserie / Peinture</option>
+                <option value="diagnostic">Diagnostic électronique</option>
+                <option value="pneus">Pneumatiques</option>
+                <option value="climatisation">Climatisation</option>
+                <option value="ct">Préparation contrôle technique</option>
+                <option value="geometrie">Géométrie</option>
+                <option value="autre">Autre (préciser dans le message)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date souhaitée</label>
+                <input type="date" name="date">
+              </div>
+              <div class="form-group">
+                <label>Créneau préféré</label>
+                <select name="creneau">
+                  <option value="">Indifférent</option>
+                  <option value="matin">Matin (8h-12h)</option>
+                  <option value="apresmidi">Après-midi (12h-19h)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description du problème</label>
+              <textarea name="message" rows="4" placeholder="Décrivez votre problème ou toute information utile (symptômes, bruits, voyant allumé...)"></textarea>
+            </div>
+            <div class="form-group" style="display:flex;align-items:center;gap:.8rem;">
+              <input type="checkbox" id="vehicule-courtoisie" name="vehicule_courtoisie" style="width:auto;accent-color:var(--orange);">
+              <label for="vehicule-courtoisie" style="text-transform:none;letter-spacing:0;margin-bottom:0;cursor:pointer;">Je souhaite un véhicule de courtoisie (gratuit, sous réserve)</label>
+            </div>
+            <button type="submit" class="btn btn-orange" style="width:100%;margin-top:.5rem;justify-content:center;">Envoyer ma demande →</button>
+            <div class="success-msg" id="rdvSuccessMsg">✔ Demande envoyée ! Nous vous confirmons votre RDV dans les 2h par SMS ou email.</div>
+          </form>
+        </div>
+
+        <!-- INFOS -->
+        <div>
+          <span class="label" style="margin-bottom:1.5rem;display:block;">Informations pratiques</span>
+
+          <div class="contact-info-block">
+            <h4>Adresse</h4>
+            <p>14 Rue de Bagnolet<br>75020 Paris — 20e arrondissement<br>Métro : Gambetta (ligne 3) ou Alexandre Dumas (ligne 2)</p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Téléphone & Email</h4>
+            <p><a href="tel:0148723390" style="color:var(--orange);">01 48 72 33 90</a><br>
+            <a href="mailto:contact@prestige-auto-paris.fr" style="color:var(--orange);">contact@prestige-auto-paris.fr</a></p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Horaires</h4>
+            <p>
+              Lundi – Vendredi : <strong style="color:var(--blanc)">08h00 – 19h00</strong><br>
+              Samedi : <strong style="color:var(--blanc)">08h30 – 17h00</strong><br>
+              Dimanche : <span style="color:var(--gris)">Fermé</span>
+            </p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Accueil sans RDV</h4>
+            <p>Diagnostic express et petites interventions (<30 min) acceptées sans rendez-vous sous réserve de disponibilité. Appelez avant de vous déplacer.</p>
+          </div>
+
+          <div class="contact-info-block">
+            <h4>Véhicule de courtoisie</h4>
+            <p>Mise à disposition gratuite pour les interventions > 4h. Réservation requise à la prise de RDV.</p>
+          </div>
+
+          <div class="map-placeholder">
+            <div class="map-inner">
+              <span></span>
+              <p>14 Rue de Bagnolet, Paris 20e</p>
+              <a href="https://maps.google.com/?q=14+Rue+de+Bagnolet+Paris+20" target="_blank" class="btn btn-outline" style="font-size:.75rem;margin-top:1rem;">Voir sur Google Maps</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand"><div class="nav-logo"><div class="nav-logo-icon">⚙</div> PRESTIGE<span>AUTO</span></div><p>Votre garage de confiance depuis 2004.</p></div>
+      <div><h4>Services</h4><ul><li><a href="services.html">Mécanique</a></li><li><a href="services.html">Carrosserie</a></li><li><a href="services.html">Diagnostic</a></li></ul></div>
+      <div><h4>Infos</h4><ul><li><a href="tarifs.html">Tarifs</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="contact.html">RDV</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>📍 14 Rue de Bagnolet, 75020 Paris</li><li>📞 01 48 72 33 90</li></ul></div>
+    </div>
+    <div class="container"><div class="footer-bottom"><span>© 2024 <span>Prestige Auto</span></span></div></div>
+  </footer>
+
+  <button class="chat-btn" id="chatBtn">🔧</button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-icon">⚙</div>
+      <div class="chat-header-info"><div class="name">Max — Assistant Auto</div><div class="status">● Disponible</div></div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-area">
+      <textarea class="chat-input" id="chatInput" placeholder="Une question sur votre RDV ?" rows="1"></textarea>
+      <button class="chat-send" id="chatSend">➤</button>
+    </div>
+  </div>
+  <script src="chatbot.js"></script>
+  <script>
+    document.getElementById('rdvForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = 'Envoi en cours...';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('rdvSuccessMsg').style.display = 'block';
+        btn.innerHTML = 'Envoyer ma demande →';
+        btn.disabled = false;
+        this.reset();
+        window.scrollTo({top: document.getElementById('rdvSuccessMsg').offsetTop - 100, behavior: 'smooth'});
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

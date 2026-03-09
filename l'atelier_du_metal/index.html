@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'Atelier du Métal by Gomez — Présentoirs sur mesure</title>
+  <meta name="description" content="Fabricant français de présentoirs métalliques sur mesure depuis 2003. Découpe laser haute précision, pliage, soudure. Retail, luxe, événementiel. Devis gratuit sous 24h." />
+  <meta name="keywords" content="présentoir métallique, découpe laser métal, mobilier commercial sur mesure, fabrication française, retail, luxe" />
+  <meta property="og:title" content="L'Atelier du Métal by Gomez — Présentoirs sur mesure" />
+  <meta property="og:description" content="Fabricant français de présentoirs métalliques sur mesure depuis plus de 20 ans. Made in France." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232C3135'/%3E%3Ctext x='50%25' y='56%25' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%23C8A96E' text-anchor='middle' dominant-baseline='middle'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --anthracite: #2C3135;
+      --anthracite-light: #3D444B;
+      --steel: #6B7580;
+      --steel-light: #A8B2BC;
+      --cream: #F5F2EE;
+      --warm-white: #FDFCFB;
+      --accent: #C8A96E;
+      --accent-dark: #A8893E;
+      --red: #C0392B;
+      --blue-gomez: #1B3A6B;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--warm-white);
+      color: var(--anthracite);
+      overflow-x: hidden;
+    }
+
+    /* ───── CURSOR ───── */
+    body { cursor: crosshair; }
+    a, button { cursor: crosshair; }
+
+    /* ───── SCROLLBAR ───── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--anthracite); }
+
+    /* ───── NAV ───── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 4rem;
+      height: 80px;
+      background: rgba(253, 252, 251, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(44,49,53,0.08);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(44,49,53,0.08);
+    }
+    .nav-logo img { height: 40px; transition: height 0.3s; }
+    nav.scrolled .nav-logo img { height: 32px; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--anthracite);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 1px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--accent-dark); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-white) !important;
+      background: var(--anthracite);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--warm-white) !important; }
+
+    /* ───── HERO ───── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7rem 4rem 6rem 5rem;
+      position: relative; z-index: 2;
+    }
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--accent);
+    }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--anthracite);
+      margin-bottom: 0.3rem;
+    }
+    .hero-title span {
+      color: var(--accent);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75em;
+      font-weight: 400;
+      text-transform: none;
+      display: block;
+      letter-spacing: 0;
+    }
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--steel);
+      margin: 2rem 0 2.5rem;
+      max-width: 420px;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; }
+    .btn-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--anthracite);
+      color: var(--warm-white);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+    .btn-secondary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--anthracite);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      border-bottom: 1px solid var(--anthracite);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-stats {
+      display: flex; gap: 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(44,49,53,0.1);
+    }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--anthracite);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--steel);
+      margin-top: 0.25rem;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right-grid {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      height: 100%;
+    }
+    .hero-img-main {
+      position: relative; overflow: hidden;
+    }
+    .hero-img-main img, .hero-img-small img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .hero-img-main:hover img, .hero-img-small:hover img {
+      transform: scale(1.04);
+    }
+    .hero-img-row { display: grid; grid-template-columns: 1fr 1fr; }
+    .hero-img-small { position: relative; overflow: hidden; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(44,49,53,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* geometric accent */
+    .hero-geo {
+      position: absolute;
+      top: 50%; left: -60px;
+      transform: translateY(-50%);
+      width: 120px; height: 120px;
+      border: 1px solid var(--accent);
+      opacity: 0.3;
+      z-index: 3;
+      animation: rotate-geo 20s linear infinite;
+    }
+    @keyframes rotate-geo { to { transform: translateY(-50%) rotate(360deg); } }
+
+    /* ───── MARQUEE ───── */
+    .marquee-wrap {
+      background: var(--anthracite);
+      padding: 1rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex; gap: 0;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      padding: 0 2.5rem;
+    }
+    .marquee-item span { color: var(--accent); margin: 0 0.5rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ───── SECTION COMMONS ───── */
+    section { padding: 7rem 5rem; }
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-tag::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--accent);
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      color: var(--anthracite);
+    }
+    .section-body {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--steel);
+      max-width: 480px;
+    }
+
+    /* ───── SAVOIR-FAIRE ───── */
+    #savoir-faire { background: var(--cream); }
+    .sf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+    .sf-left { position: relative; }
+    .sf-image-stack { position: relative; height: 520px; }
+    .sf-img-back {
+      position: absolute;
+      top: 0; left: 0;
+      width: 75%; height: 80%;
+      overflow: hidden;
+    }
+    .sf-img-front {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 60%; height: 65%;
+      overflow: hidden;
+      border: 6px solid var(--warm-white);
+    }
+    .sf-img-back img, .sf-img-front img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .sf-img-back:hover img, .sf-img-front:hover img { transform: scale(1.05); }
+    .sf-badge {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px; height: 100px;
+      background: var(--anthracite);
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 10;
+    }
+    .sf-badge-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 1.8rem;
+      color: var(--accent); line-height: 1;
+    }
+    .sf-badge-txt {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.55rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--steel-light); text-align: center;
+    }
+    .sf-right {}
+    .sf-features { display: grid; gap: 1.8rem; margin-top: 2.5rem; }
+    .sf-feature {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.2rem;
+      border-left: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .sf-feature:hover {
+      border-left-color: var(--accent);
+      background: rgba(200,169,110,0.05);
+    }
+    .sf-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--anthracite);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sf-icon svg { width: 20px; height: 20px; fill: var(--accent); }
+    .sf-feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--anthracite); margin-bottom: 0.3rem;
+    }
+    .sf-feature-desc {
+      font-size: 0.88rem; font-weight: 300; line-height: 1.6;
+      color: var(--steel);
+    }
+
+    /* ───── LASER ───── */
+    #laser {
+      background: var(--anthracite);
+      position: relative; overflow: hidden;
+      padding: 7rem 5rem;
+    }
+    .laser-bg-pattern {
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 39px,
+        rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px
+      ),
+      repeating-linear-gradient(
+        90deg, transparent, transparent 39px,
+        rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px
+      );
+    }
+    .laser-content {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 5rem; align-items: center;
+    }
+    .laser-left .section-tag { color: var(--accent); }
+    .laser-left .section-tag::before { background: var(--accent); }
+    .laser-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      text-transform: uppercase;
+      line-height: 0.92;
+      color: var(--warm-white);
+      margin-bottom: 1.5rem;
+    }
+    .laser-title em {
+      font-style: normal;
+      -webkit-text-stroke: 1px var(--accent);
+      color: transparent;
+    }
+    .laser-body {
+      font-size: 1rem; font-weight: 300; line-height: 1.75;
+      color: var(--steel-light); max-width: 420px;
+      margin-bottom: 2rem;
+    }
+    .laser-specs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2rem;
+    }
+    .laser-spec {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1.2rem;
+      transition: border-color 0.2s;
+    }
+    .laser-spec:hover { border-color: var(--accent); }
+    .laser-spec-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1.6rem;
+      color: var(--accent);
+    }
+    .laser-spec-key {
+      font-size: 0.75rem; font-weight: 300;
+      letter-spacing: 0.05em; color: var(--steel-light);
+      margin-top: 0.2rem;
+    }
+    .laser-right { position: relative; }
+    .laser-img-wrap {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .laser-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(20%);
+      transition: transform 0.6s, filter 0.6s;
+    }
+    .laser-img-wrap:hover img { transform: scale(1.04); filter: grayscale(0); }
+    .laser-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--anthracite) 0%, transparent 40%);
+    }
+    .laser-img-caption {
+      position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--steel-light);
+    }
+    .laser-line {
+      position: absolute;
+      width: 2px; height: 200px;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      top: -100px; right: -20px;
+      animation: laser-scan 3s ease-in-out infinite;
+    }
+    @keyframes laser-scan {
+      0%, 100% { top: -100px; opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { top: calc(100% + 100px); opacity: 0; }
+    }
+
+    /* ───── RÉALISATIONS ───── */
+    #realisations { background: var(--warm-white); }
+    .real-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3.5rem;
+    }
+    .real-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .real-item {
+      position: relative; overflow: hidden;
+      background: var(--cream);
+    }
+    .real-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease, filter 0.4s;
+      filter: grayscale(10%);
+    }
+    .real-item:hover img { transform: scale(1.06); filter: grayscale(0); }
+    .real-item-overlay {
+      position: absolute; inset: 0;
+      background: rgba(44,49,53,0);
+      transition: background 0.3s;
+      display: flex; align-items: flex-end; padding: 1.2rem;
+    }
+    .real-item:hover .real-item-overlay { background: rgba(44,49,53,0.5); }
+    .real-item-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.75rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--warm-white);
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .real-item:hover .real-item-label { opacity: 1; transform: translateY(0); }
+
+    /* mosaic layout */
+    .real-item:nth-child(1) { grid-column: span 5; grid-row: span 1; aspect-ratio: 4/3; }
+    .real-item:nth-child(2) { grid-column: span 4; grid-row: span 1; aspect-ratio: 4/3; }
+    .real-item:nth-child(3) { grid-column: span 3; grid-row: span 2; }
+    .real-item:nth-child(4) { grid-column: span 3; aspect-ratio: 1; }
+    .real-item:nth-child(5) { grid-column: span 3; aspect-ratio: 1; }
+    .real-item:nth-child(6) { grid-column: span 3; aspect-ratio: 1; }
+    .real-item:nth-child(7) { grid-column: span 4; aspect-ratio: 16/9; }
+    .real-item:nth-child(8) { grid-column: span 4; aspect-ratio: 16/9; }
+    .real-item:nth-child(9) { grid-column: span 4; aspect-ratio: 16/9; }
+
+    /* ───── VALEURS ───── */
+    #valeurs { background: var(--cream); }
+    .val-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border: 1px solid rgba(44,49,53,0.1);
+    }
+    .val-card {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid rgba(44,49,53,0.1);
+      transition: background 0.3s;
+      position: relative;
+    }
+    .val-card:last-child { border-right: none; }
+    .val-card:hover { background: var(--warm-white); }
+    .val-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 4rem;
+      color: rgba(44,49,53,0.06);
+      line-height: 1;
+      margin-bottom: -0.5rem;
+    }
+    .val-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .val-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .val-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--anthracite); margin-bottom: 0.8rem;
+    }
+    .val-desc {
+      font-size: 0.88rem; font-weight: 300; line-height: 1.7;
+      color: var(--steel);
+    }
+    .val-line {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .val-card:hover .val-line { transform: scaleX(1); }
+
+    /* ───── CONTACT ───── */
+    #contact { background: var(--anthracite); position: relative; overflow: hidden; }
+    .contact-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(200,169,110,0.08) 0%, transparent 60%);
+    }
+    .contact-grid {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6rem; align-items: start;
+    }
+    .contact-left .section-tag { color: var(--accent); }
+    .contact-left .section-tag::before { background: var(--accent); }
+    .contact-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(2rem, 4vw, 3.5rem);
+      text-transform: uppercase; line-height: 0.95;
+      color: var(--warm-white); margin-bottom: 1.5rem;
+    }
+    .contact-body {
+      font-size: 1rem; font-weight: 300; line-height: 1.75;
+      color: var(--steel-light); margin-bottom: 2.5rem;
+    }
+    .contact-infos { display: grid; gap: 1.2rem; }
+    .contact-info-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .contact-info-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border: 1px solid rgba(200,169,110,0.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-info-icon svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .contact-info-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--steel); margin-bottom: 0.2rem;
+    }
+    .contact-info-val {
+      font-size: 0.95rem; font-weight: 400; color: var(--warm-white);
+    }
+    .contact-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.72rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--steel);
+    }
+    .form-input, .form-textarea, .form-select {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--warm-white);
+      padding: 0.85rem 1rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--steel); }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--accent);
+      background: rgba(200,169,110,0.05);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select option { background: var(--anthracite); color: var(--warm-white); }
+    .form-submit {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: var(--accent);
+      color: var(--anthracite);
+      border: none;
+      padding: 1rem 2.5rem;
+      cursor: crosshair;
+      transition: background 0.2s, transform 0.2s;
+      align-self: start;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--warm-white); transform: translateY(-1px); }
+
+    /* ───── FOOTER ───── */
+    footer {
+      background: #1A1E21;
+      padding: 2.5rem 5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo img { height: 32px; filter: brightness(0) invert(1) opacity(0.6); }
+    .footer-copy {
+      font-size: 0.78rem; font-weight: 300;
+      letter-spacing: 0.06em; color: var(--steel);
+    }
+    .footer-mf {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .footer-mf::before {
+      content: '🇫🇷';
+      font-size: 0.9rem;
+    }
+
+    /* ───── REVEAL ANIMATIONS ───── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Fallback for file:// protocol */
+    @media (prefers-reduced-motion: no-preference) {}
+    
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ───── MOBILE ───── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 3rem 1.5rem 2rem; }
+      .hero-right { height: 50vw; }
+      .hero-right-grid { grid-template-rows: 1fr; }
+      .hero-img-row { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .sf-grid, .laser-content, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .val-grid { grid-template-columns: 1fr; }
+      .val-card { border-right: none; border-bottom: 1px solid rgba(44,49,53,0.1); }
+      .form-row { grid-template-columns: 1fr; }
+      .real-grid { grid-template-columns: 1fr 1fr; }
+      .real-item { grid-column: span 1 !important; grid-row: span 1 !important; aspect-ratio: 4/3 !important; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+      .real-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+
+    /* ───── CUSTOM CURSOR ───── */
+    .cursor {
+      position: fixed; top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background 0.2s;
+    }
+    .cursor-ring {
+      position: fixed; top: 0; left: 0;
+      width: 32px; height: 32px;
+      border: 1px solid rgba(44,49,53,0.5);
+      border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, border-color 0.2s;
+    }
+    .cursor.hovered { width: 4px; height: 4px; background: var(--accent-dark); }
+    .cursor-ring.hovered { width: 48px; height: 48px; border-color: var(--accent); }
+    @media (hover: none) { .cursor, .cursor-ring { display: none; } }
+
+    /* ───── HAMBURGER ───── */
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; padding: 6px;
+      cursor: crosshair; z-index: 200;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--anthracite);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed; top: 80px; left: 0; right: 0;
+      background: var(--warm-white);
+      border-bottom: 1px solid rgba(44,49,53,0.08);
+      box-shadow: 0 8px 30px rgba(44,49,53,0.1);
+      display: flex; flex-direction: column; gap: 0;
+      z-index: 99;
+      transform: translateY(-10px); opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 1rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--anthracite); text-decoration: none;
+      padding: 1.1rem 2rem;
+      border-bottom: 1px solid rgba(44,49,53,0.05);
+      transition: color 0.2s, background 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); background: var(--cream); }
+    .mobile-menu .nav-cta {
+      margin: 1rem 1.5rem 1.5rem;
+      text-align: center; color: var(--warm-white) !important;
+      background: var(--anthracite); padding: 1rem;
+      border-bottom: none;
+    }
+    .mobile-menu .nav-cta:hover { background: var(--accent) !important; }
+    @media (max-width: 900px) { .hamburger { display: flex; } }
+
+    /* ───── PROCESSUS ───── */
+    #processus { background: var(--warm-white); }
+    .proc-header { text-align: center; max-width: 600px; margin: 0 auto 5rem; }
+    .proc-header .section-tag { justify-content: center; }
+    .proc-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .proc-step {
+      padding: 3rem 2rem; background: var(--cream);
+      position: relative; overflow: hidden;
+      transition: background 0.35s;
+    }
+    .proc-step:hover { background: var(--anthracite); }
+    .proc-step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 5rem;
+      color: rgba(44,49,53,0.06); line-height: 1;
+      margin-bottom: -1.5rem;
+      transition: color 0.35s;
+    }
+    .proc-step:hover .proc-step-num { color: rgba(200,169,110,0.08); }
+    .proc-step-icon {
+      width: 44px; height: 44px;
+      border: 1px solid var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+      transition: background 0.35s;
+    }
+    .proc-step:hover .proc-step-icon { background: var(--accent); }
+    .proc-step-icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.5; transition: stroke 0.35s; }
+    .proc-step:hover .proc-step-icon svg { stroke: var(--anthracite); }
+    .proc-step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--anthracite); margin-bottom: 0.6rem;
+      transition: color 0.35s;
+    }
+    .proc-step:hover .proc-step-title { color: var(--warm-white); }
+    .proc-step-desc { font-size: 0.85rem; font-weight: 300; line-height: 1.65; color: var(--steel); transition: color 0.35s; }
+    .proc-step:hover .proc-step-desc { color: var(--steel-light); }
+    .proc-step-arrow {
+      position: absolute; top: 50%; right: -14px;
+      width: 28px; height: 28px;
+      background: var(--accent);
+      clip-path: polygon(0 0, 60% 50%, 0 100%);
+      transform: translateY(-50%);
+      z-index: 1; opacity: 0.6;
+    }
+    .proc-step:last-child .proc-step-arrow { display: none; }
+    @media (max-width: 900px) {
+      .proc-steps { grid-template-columns: 1fr 1fr; }
+      .proc-step-arrow { display: none; }
+    }
+
+    /* ───── LIGHTBOX ───── */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(18,20,22,0.97);
+      z-index: 8000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-inner { position: relative; max-width: 90vw; max-height: 88vh; }
+    .lightbox-img {
+      max-width: 90vw; max-height: 82vh;
+      object-fit: contain; display: block;
+      transform: scale(0.94);
+      transition: transform 0.3s;
+    }
+    .lightbox.open .lightbox-img { transform: scale(1); }
+    .lightbox-close {
+      position: fixed; top: 1.5rem; right: 2rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.72rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--steel-light); background: none; border: none;
+      cursor: crosshair; display: flex; align-items: center; gap: 0.6rem;
+      transition: color 0.2s;
+    }
+    .lightbox-close::before { content: '✕'; font-size: 1rem; }
+    .lightbox-close:hover { color: var(--warm-white); }
+    .lightbox-caption {
+      margin-top: 1rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--steel); text-align: center;
+    }
+    .lightbox-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: var(--steel-light); font-size: 1.2rem;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: crosshair; transition: border-color 0.2s, color 0.2s;
+    }
+    .lightbox-nav:hover { border-color: var(--accent); color: var(--accent); }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+    .real-item { cursor: zoom-in; }
+    .real-item-zoom {
+      position: absolute; top: 1rem; right: 1rem;
+      width: 32px; height: 32px;
+      background: rgba(44,49,53,0.7);
+      border: 1px solid rgba(200,169,110,0.4);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: scale(0.8);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 2;
+    }
+    .real-item:hover .real-item-zoom { opacity: 1; transform: scale(1); }
+    .real-item-zoom svg { width: 14px; height: 14px; stroke: var(--accent); fill: none; stroke-width: 2; }
+
+    /* ───── SCROLL TO TOP ───── */
+    .scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--anthracite);
+      border: 1px solid rgba(200,169,110,0.25);
+      display: flex; align-items: center; justify-content: center;
+      cursor: crosshair; z-index: 500;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, background 0.2s, border-color 0.2s;
+      pointer-events: none;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .scroll-top:hover { background: var(--accent); border-color: var(--accent); }
+    .scroll-top svg { width: 16px; height: 16px; stroke: var(--warm-white); fill: none; stroke-width: 2; }
+
+    /* ───── PAGE LOADER ───── */
+    .page-loader {
+      position: fixed; inset: 0;
+      background: var(--anthracite);
+      z-index: 99999;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.7s ease;
+    }
+    .page-loader.done { opacity: 0; pointer-events: none; }
+    .loader-logo {
+      width: 110px; opacity: 0;
+      filter: brightness(0) invert(1);
+      animation: loader-appear 0.5s 0.2s ease forwards;
+    }
+    .loader-bar-wrap {
+      width: 140px; height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin-top: 2rem; overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%; background: var(--accent); width: 0;
+      animation: loader-fill 1.3s 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    .loader-txt {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 0.62rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--steel); margin-top: 1.2rem;
+      opacity: 0; animation: loader-appear 0.5s 0.6s ease forwards;
+    }
+    @keyframes loader-appear { to { opacity: 1; } }
+    @keyframes loader-fill { to { width: 100%; } }
+
+    /* ───── RÉFÉRENCES CLIENTS ───── */
+    #references { background: var(--cream); padding: 3.5rem 0; overflow: hidden; }
+    .ref-label {
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--steel-light); margin-bottom: 2rem;
+    }
+    .ref-track-wrap { overflow: hidden; position: relative; }
+    .ref-track-wrap::before, .ref-track-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+      pointer-events: none;
+    }
+    .ref-track-wrap::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+    .ref-track-wrap::after { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+    .ref-track { display: inline-flex; align-items: center; animation: marquee 35s linear infinite; white-space: nowrap; }
+    .ref-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      text-transform: uppercase; letter-spacing: 0.04em;
+      color: rgba(44,49,53,0.14);
+      padding: 0 2.5rem;
+      transition: color 0.3s;
+    }
+    .ref-name:hover { color: var(--anthracite); }
+    .ref-sep { color: var(--accent); font-size: 0.7rem; opacity: 0.5; }
+
+    /* ───── WHATSAPP ───── */
+    .whatsapp-btn {
+      position: fixed; bottom: 5.5rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 500;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; text-decoration: none;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,0.5); }
+    .whatsapp-btn svg { width: 22px; height: 22px; fill: white; }
+
+    /* ───── FOOTER SOCIAL ───── */
+    .footer-social { display: flex; gap: 0.6rem; }
+    .footer-social a {
+      width: 30px; height: 30px;
+      border: 1px solid rgba(200,169,110,0.2);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--accent); background: rgba(200,169,110,0.1); }
+    .footer-social svg { width: 13px; height: 13px; stroke: var(--steel); fill: none; stroke-width: 1.5; transition: stroke 0.2s; }
+    .footer-social a:hover svg { stroke: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- ───── PAGE LOADER ───── -->
+<div class="page-loader" id="pageLoader">
+  <img class="loader-logo" src="logo.png" alt="" />
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <p class="loader-txt">Fabrication en cours</p>
+</div>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ───── NAV ───── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="L'Atelier du Métal by Gomez" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#savoir-faire">Savoir-faire</a></li>
+    <li><a href="#laser">Découpe Laser</a></li>
+    <li><a href="#realisations">Réalisations</a></li>
+    <li><a href="#valeurs">L'Atelier</a></li>
+    <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#savoir-faire">Savoir-faire</a>
+  <a href="#laser">Découpe Laser</a>
+  <a href="#processus">Notre processus</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#valeurs">L'Atelier</a>
+  <a href="#contact" class="nav-cta">Devis gratuit</a>
+</div>
+
+<!-- ───── HERO ───── -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow reveal">Made in France · Depuis 2003</p>
+    <h1 class="hero-title reveal reveal-delay-1">
+      L'ART DU<br>MÉTAL
+      <span>by Gomez</span>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      Depuis plus de 20 ans, nous concevons et fabriquons des présentoirs métalliques sur mesure pour les plus grandes enseignes. Découpe laser, pliage, soudure — tout est réalisé en France, dans notre atelier.
+    </p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#realisations" class="btn-primary">Voir nos réalisations</a>
+      <a href="#contact" class="btn-secondary">Demander un devis →</a>
+    </div>
+    <div class="hero-stats reveal reveal-delay-4">
+      <div>
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-label">Ans d'expertise</div>
+      </div>
+      <div>
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label">Projets réalisés</div>
+      </div>
+      <div>
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">Fabrication française</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-grid">
+      <div class="hero-img-main">
+        <img src="IMG_4351.jpeg" alt="Présentoir Geek Mais Chic" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-img-row">
+        <div class="hero-img-small">
+          <img src="IMG_4354.jpeg" alt="Étagère Tod's" />
+        </div>
+        <div class="hero-img-small">
+          <img src="IMG_5289.jpeg" alt="Présentoir So Punk" />
+        </div>
+      </div>
+    </div>
+    <div class="hero-geo"></div>
+  </div>
+</section>
+
+<!-- ───── MARQUEE ───── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Présentoirs sur mesure <span>✦</span></span>
+    <span class="marquee-item">Découpe laser métal <span>✦</span></span>
+    <span class="marquee-item">Made in France <span>✦</span></span>
+    <span class="marquee-item">Retail & Luxury <span>✦</span></span>
+    <span class="marquee-item">Mobilier commercial <span>✦</span></span>
+    <span class="marquee-item">20 ans d'expertise <span>✦</span></span>
+    <span class="marquee-item">Fabrication artisanale <span>✦</span></span>
+    <span class="marquee-item">Acier, inox, aluminium <span>✦</span></span>
+    <span class="marquee-item">Présentoirs sur mesure <span>✦</span></span>
+    <span class="marquee-item">Découpe laser métal <span>✦</span></span>
+    <span class="marquee-item">Made in France <span>✦</span></span>
+    <span class="marquee-item">Retail & Luxury <span>✦</span></span>
+    <span class="marquee-item">Mobilier commercial <span>✦</span></span>
+    <span class="marquee-item">20 ans d'expertise <span>✦</span></span>
+    <span class="marquee-item">Fabrication artisanale <span>✦</span></span>
+    <span class="marquee-item">Acier, inox, aluminium <span>✦</span></span>
+  </div>
+</div>
+
+<!-- ───── RÉFÉRENCES CLIENTS ───── -->
+<section id="references">
+  <p class="ref-label">Ils nous font confiance</p>
+  <div class="ref-track-wrap">
+    <div class="ref-track">
+      <span class="ref-name">Le Bon Marché</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Tod's</span><span class="ref-sep">✦</span>
+      <span class="ref-name">So Punk</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Citadium</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Galeries Lafayette</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Sephora</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Le Bon Marché</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Tod's</span><span class="ref-sep">✦</span>
+      <span class="ref-name">So Punk</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Citadium</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Galeries Lafayette</span><span class="ref-sep">✦</span>
+      <span class="ref-name">Sephora</span><span class="ref-sep">✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───── SAVOIR-FAIRE ───── -->
+<section id="savoir-faire">
+  <div class="sf-grid">
+    <div class="sf-left reveal">
+      <div class="sf-image-stack">
+        <div class="sf-img-back">
+          <img src="IMG_4352.jpeg" alt="Atelier métallurgie" />
+        </div>
+        <div class="sf-img-front">
+          <img src="IMG_5294.jpeg" alt="Détail présentoir" />
+        </div>
+        <div class="sf-badge">
+          <span class="sf-badge-num">+20</span>
+          <span class="sf-badge-txt">ans de<br>métier</span>
+        </div>
+      </div>
+    </div>
+    <div class="sf-right">
+      <p class="section-tag reveal">Notre savoir-faire</p>
+      <h2 class="section-title reveal reveal-delay-1">
+        MÉTAL<br>TRAVAILLÉ<br>À L'ART
+      </h2>
+      <p class="section-body reveal reveal-delay-2" style="margin: 1.5rem 0 0;">
+        Fondé il y a plus de 20 ans, L'Atelier du Métal by Gomez est une entreprise familiale française spécialisée dans la conception et la fabrication de présentoirs métalliques pour le retail, le luxe et l'événementiel.
+      </p>
+      <div class="sf-features">
+        <div class="sf-feature reveal reveal-delay-1">
+          <div class="sf-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <p class="sf-feature-title">Conception sur mesure</p>
+            <p class="sf-feature-desc">Chaque présentoir est conçu et dimensionné selon vos besoins, vos contraintes d'espace et votre identité visuelle.</p>
+          </div>
+        </div>
+        <div class="sf-feature reveal reveal-delay-2">
+          <div class="sf-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07M5 5l14 14"/></svg>
+          </div>
+          <div>
+            <p class="sf-feature-title">Finitions premium</p>
+            <p class="sf-feature-desc">Peinture époxy, thermolaquage, galvanisation — des finitions durables et esthétiques adaptées à chaque univers.</p>
+          </div>
+        </div>
+        <div class="sf-feature reveal reveal-delay-3">
+          <div class="sf-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+          </div>
+          <div>
+            <p class="sf-feature-title">Fabrication 100% française</p>
+            <p class="sf-feature-desc">De la découpe au montage, tout est réalisé dans notre atelier en France. Réactivité, qualité, traçabilité.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── LASER ───── -->
+<section id="laser">
+  <div class="laser-bg-pattern"></div>
+  <div class="laser-content">
+    <div class="laser-left">
+      <p class="section-tag reveal">Technologie</p>
+      <h2 class="laser-title reveal reveal-delay-1">
+        DÉCOUPE<br><em>LASER</em><br>MÉTAL
+      </h2>
+      <p class="laser-body reveal reveal-delay-2">
+        Notre atelier est équipé d'un laser de découpe industriel haute puissance. Cette technologie nous permet de découper avec une précision millimétrique toutes formes sur acier, inox et aluminium — ouvrant un champ des possibles infini pour vos projets.
+      </p>
+      <p class="laser-body reveal reveal-delay-2" style="margin-top: -0.5rem;">
+        Idéal pour les enseignes, les découpages décoratifs, les structures ajourées, les logos en métal découpé et bien plus encore.
+      </p>
+      <div class="laser-specs reveal reveal-delay-3">
+        <div class="laser-spec">
+          <div class="laser-spec-val">≤ 0,1mm</div>
+          <div class="laser-spec-key">Précision de découpe</div>
+        </div>
+        <div class="laser-spec">
+          <div class="laser-spec-val">25mm</div>
+          <div class="laser-spec-key">Épaisseur max. acier</div>
+        </div>
+        <div class="laser-spec">
+          <div class="laser-spec-val">Inox · Acier · Alu</div>
+          <div class="laser-spec-key">Matériaux traités</div>
+        </div>
+        <div class="laser-spec">
+          <div class="laser-spec-val">Sur fichier</div>
+          <div class="laser-spec-key">Toutes formes DXF/DWG</div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary reveal reveal-delay-4" style="margin-top:2rem; display:inline-block;">
+        Soumettre un projet laser →
+      </a>
+    </div>
+    <div class="laser-right reveal">
+      <div class="laser-img-wrap">
+        <img src="IMG_5628.jpeg" alt="Découpe laser métal" />
+        <div class="laser-img-overlay"></div>
+        <p class="laser-img-caption">Découpe laser haute précision — Atelier Gomez, France</p>
+      </div>
+      <div class="laser-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PROCESSUS ───── -->
+<section id="processus">
+  <div class="proc-header">
+    <p class="section-tag reveal">Comment ça marche</p>
+    <h2 class="section-title reveal reveal-delay-1">NOTRE<br>PROCESSUS</h2>
+  </div>
+  <div class="proc-steps">
+    <div class="proc-step reveal">
+      <div class="proc-step-num">01</div>
+      <div class="proc-step-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <p class="proc-step-title">Brief & Échange</p>
+      <p class="proc-step-desc">Vous nous décrivez votre projet : dimensions, matériaux, quantité, délais. Nous analysons votre besoin et posons les bonnes questions.</p>
+      <div class="proc-step-arrow"></div>
+    </div>
+    <div class="proc-step reveal reveal-delay-1">
+      <div class="proc-step-num">02</div>
+      <div class="proc-step-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <p class="proc-step-title">Étude & Devis</p>
+      <p class="proc-step-desc">Nous réalisons les plans techniques, définissons les matériaux et finitions, et vous soumettons un devis détaillé sous 24h.</p>
+      <div class="proc-step-arrow"></div>
+    </div>
+    <div class="proc-step reveal reveal-delay-2">
+      <div class="proc-step-num">03</div>
+      <div class="proc-step-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <p class="proc-step-title">Fabrication</p>
+      <p class="proc-step-desc">Notre atelier prend en charge la découpe laser, le pliage, la soudure et les finitions. Tout est fait en France, dans nos locaux.</p>
+      <div class="proc-step-arrow"></div>
+    </div>
+    <div class="proc-step reveal reveal-delay-3">
+      <div class="proc-step-num">04</div>
+      <div class="proc-step-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+      </div>
+      <p class="proc-step-title">Livraison</p>
+      <p class="proc-step-desc">Votre commande est livrée dans les délais convenus, soigneusement emballée. Nous assurons le suivi jusqu'à réception.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── RÉALISATIONS ───── -->
+<section id="realisations">
+  <div class="real-header">
+    <div>
+      <p class="section-tag reveal">Portfolio</p>
+      <h2 class="section-title reveal reveal-delay-1">NOS<br>RÉALISATIONS</h2>
+    </div>
+    <a href="#contact" class="btn-secondary reveal" style="margin-bottom:0.3rem;">
+      Parler de votre projet →
+    </a>
+  </div>
+  <div class="real-grid">
+    <div class="real-item reveal" data-src="IMG_4351.jpeg" data-caption="Bon Marché — Geek Mais Chic">
+      <img src="IMG_4351.jpeg" alt="Présentoir Geek Mais Chic — Bon Marché" />
+      <div class="real-item-overlay"><span class="real-item-label">Bon Marché — Geek Mais Chic</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-1" data-src="IMG_5294.jpeg" data-caption="Station VR — Delphine">
+      <img src="IMG_5294.jpeg" alt="Présentoir VR Delphine" />
+      <div class="real-item-overlay"><span class="real-item-label">Station VR — Delphine</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-2" data-src="IMG_5634.jpeg" data-caption="Mobilier retail — So Punk">
+      <img src="IMG_5634.jpeg" alt="Étagère produits So Punk" />
+      <div class="real-item-overlay"><span class="real-item-label">Mobilier retail — So Punk</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-1" data-src="IMG_4354.jpeg" data-caption="Étagère murale — Tod's">
+      <img src="IMG_4354.jpeg" alt="Étagère Tod's" />
+      <div class="real-item-overlay"><span class="real-item-label">Étagère murale — Tod's</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-2" data-src="IMG_5630.jpeg" data-caption="Îlot central — So Punk Rive Gauche">
+      <img src="IMG_5630.jpeg" alt="Présentoir So Punk gorille" />
+      <div class="real-item-overlay"><span class="real-item-label">Îlot central — So Punk Rive Gauche</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-3" data-src="IMG_5639.jpeg" data-caption="Mobilier bar — Le Bon Marché">
+      <img src="IMG_5639.jpeg" alt="Table et tabourets" loading="lazy" />
+      <div class="real-item-overlay"><span class="real-item-label">Mobilier bar — Le Bon Marché</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal" data-src="IMG_4344.jpeg" data-caption="Réalisation sur mesure — Atelier Gomez">
+      <img src="IMG_4344.jpeg" alt="Réalisation métal sur mesure" loading="lazy" />
+      <div class="real-item-overlay"><span class="real-item-label">Réalisation sur mesure</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-1" data-src="IMG_4347.jpeg" data-caption="Présentoir retail — Fabrication française">
+      <img src="IMG_4347.jpeg" alt="Présentoir retail" loading="lazy" />
+      <div class="real-item-overlay"><span class="real-item-label">Présentoir retail — Made in France</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+    <div class="real-item reveal reveal-delay-2" data-src="IMG_4353.jpeg" data-caption="Structure métallique — Atelier Gomez">
+      <img src="IMG_4353.jpeg" alt="Structure métallique sur mesure" loading="lazy" />
+      <div class="real-item-overlay"><span class="real-item-label">Structure métallique sur mesure</span></div>
+      <div class="real-item-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── VALEURS ───── -->
+<section id="valeurs">
+  <div style="max-width: 700px; margin: 0 auto 0; text-align: center;">
+    <p class="section-tag reveal" style="justify-content: center;">L'Atelier</p>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 1rem;">
+      POURQUOI<br>NOUS CHOISIR
+    </h2>
+  </div>
+  <div class="val-grid" style="margin-top: 4rem;">
+    <div class="val-card reveal">
+      <div class="val-line"></div>
+      <div class="val-num">01</div>
+      <div class="val-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <p class="val-title">Expertise & Longévité</p>
+      <p class="val-desc">Plus de 20 ans de métier dans la fabrication de mobilier commercial et de présentoirs métalliques. Une entreprise solide avec un vrai savoir-faire transmis.</p>
+    </div>
+    <div class="val-card reveal reveal-delay-1">
+      <div class="val-line"></div>
+      <div class="val-num">02</div>
+      <div class="val-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <p class="val-title">Réactivité & Délais</p>
+      <p class="val-desc">Tout est fabriqué dans notre atelier en France. Pas de sous-traitance à l'étranger — nous maîtrisons chaque étape pour tenir les délais les plus serrés.</p>
+    </div>
+    <div class="val-card reveal reveal-delay-2">
+      <div class="val-line"></div>
+      <div class="val-num">03</div>
+      <div class="val-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <p class="val-title">Sur mesure absolu</p>
+      <p class="val-desc">Chaque projet est unique. Nous travaillons à partir de vos plans, votre brief ou simplement votre idée — et nous la concrétisons en métal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CONTACT ───── -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <p class="section-tag reveal">Contact</p>
+      <h2 class="contact-title reveal reveal-delay-1">
+        PARLONS<br>DE VOTRE<br>PROJET
+      </h2>
+      <p class="contact-body reveal reveal-delay-2">
+        Vous avez un projet de présentoir, de mobilier commercial, ou vous souhaitez exploiter notre service de découpe laser ? Décrivez-nous votre besoin — nous vous répondons sous 24h.
+      </p>
+      <div class="contact-infos reveal reveal-delay-3">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <p class="contact-info-label">Téléphone</p>
+            <p class="contact-info-val">+33 (0)X XX XX XX XX</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p class="contact-info-label">Email</p>
+            <p class="contact-info-val">contact@atelierdumetalgomez.fr</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p class="contact-info-label">Atelier</p>
+            <p class="contact-info-val">France — Fabrication locale</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right reveal reveal-delay-1">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Prénom *</label>
+            <input type="text" class="form-input" placeholder="Jean" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom *</label>
+            <input type="text" class="form-input" placeholder="Dupont" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-input" placeholder="jean@entreprise.fr" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone</label>
+            <input type="tel" class="form-input" placeholder="06 XX XX XX XX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Entreprise</label>
+          <input type="text" class="form-input" placeholder="Nom de votre entreprise" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type de projet *</label>
+          <select class="form-select" required>
+            <option value="" disabled selected>Sélectionnez...</option>
+            <option>Présentoir retail</option>
+            <option>Mobilier commercial</option>
+            <option>Découpe laser sur mesure</option>
+            <option>Signalétique métallique</option>
+            <option>Autre projet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Décrivez votre projet *</label>
+          <textarea class="form-textarea" placeholder="Dimensions, matériaux souhaités, quantité, délais, ou joignez un fichier DXF/PDF..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Envoyer ma demande →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="L'Atelier du Métal by Gomez" />
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/latelierdumetalbygomez" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/latelierdumetalbygomez" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+  </div>
+  <p class="footer-copy">© 2026 L'Atelier du Métal by Gomez — Tous droits réservés</p>
+  <p class="footer-mf">Fabrication française</p>
+</footer>
+
+<!-- ───── WHATSAPP ───── -->
+<a class="whatsapp-btn" href="https://wa.me/33600000000" target="_blank" rel="noopener" aria-label="Contactez-nous sur WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.113.549 4.093 1.508 5.814L0 24l6.344-1.482A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.002-1.374l-.36-.214-3.765.88.897-3.67-.234-.374A9.823 9.823 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- ───── LIGHTBOX ───── -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Fermer</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+</div>
+
+<!-- ───── SCROLL TO TOP ───── -->
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+  // ── CUSTOM CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  let cx = 0, cy = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
+  function animateCursor() {
+    rx += (cx - rx) * 0.12;
+    ry += (cy - ry) * 0.12;
+    cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+    cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  document.querySelectorAll('a, button, .real-item, .sf-feature, .val-card, .laser-spec, .proc-step').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.classList.add('hovered'); cursorRing.classList.add('hovered'); });
+    el.addEventListener('mouseleave', () => { cursor.classList.remove('hovered'); cursorRing.classList.remove('hovered'); });
+  });
+
+  // ── NAV SCROLL ──
+  const navbar = document.getElementById('navbar');
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ── HAMBURGER ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ── REVEAL ON SCROLL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(r => observer.observe(r));
+  setTimeout(() => {
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 50);
+
+  // ── COUNT-UP ANIMATION ──
+  function countUp(el, target, duration = 1800) {
+    const suffix = el.querySelector('span') ? el.querySelector('span').textContent : '';
+    const textNode = el.childNodes[0];
+    let start = null;
+    const step = ts => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      textNode.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else textNode.textContent = target;
+    };
+    requestAnimationFrame(step);
+  }
+  const statNums = document.querySelectorAll('.stat-num');
+  const targets = [20, 500, 100];
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = Array.from(statNums).indexOf(e.target);
+        countUp(e.target, targets[idx]);
+        statsObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statNums.forEach(n => statsObs.observe(n));
+
+  // ── LIGHTBOX ──
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const realItems = Array.from(document.querySelectorAll('.real-item[data-src]'));
+  let currentLightbox = 0;
+
+  function openLightbox(idx) {
+    currentLightbox = idx;
+    lightboxImg.src = realItems[idx].dataset.src;
+    lightboxImg.alt = realItems[idx].dataset.caption || '';
+    lightboxCaption.textContent = realItems[idx].dataset.caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  realItems.forEach((item, i) => {
+    item.addEventListener('click', () => openLightbox(i));
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener('click', e => { e.stopPropagation(); openLightbox((currentLightbox - 1 + realItems.length) % realItems.length); });
+  lightboxNext.addEventListener('click', e => { e.stopPropagation(); openLightbox((currentLightbox + 1) % realItems.length); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox((currentLightbox - 1 + realItems.length) % realItems.length);
+    if (e.key === 'ArrowRight') openLightbox((currentLightbox + 1) % realItems.length);
+  });
+
+  // ── ACTIVE NAV LINK ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent-dark)' : '';
+    });
+  });
+
+  // ── FORM SUBMIT ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Message envoyé !';
+    btn.style.background = '#2D7A4F';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Envoyer ma demande →';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // ── PAGE LOADER ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) {
+        loader.classList.add('done');
+        setTimeout(() => loader.remove(), 800);
+      }
+    }, 1700);
+  });
+
+  // ── TOUCH SWIPE LIGHTBOX ──
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) openLightbox((currentLightbox + 1) % realItems.length);
+      else openLightbox((currentLightbox - 1 + realItems.length) % realItems.length);
+    }
+  });
+</script>
+</body>
+</html>

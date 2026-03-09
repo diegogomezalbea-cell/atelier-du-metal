@@ -1,0 +1,147 @@
+{
+  "name": "Comptoir du Chef — Notification Formulaire Contact",
+  "nodes": [
+    {
+      "id": "node-webhook",
+      "name": "Webhook Formulaire",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "comptoir-contact",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      }
+    },
+    {
+      "id": "node-code",
+      "name": "Préparer données",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300],
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body;\n\nconst prenom = (body.prenom || '').trim();\nconst nom = (body.nom || '').trim();\nconst email = (body.email || '').trim();\nconst sujet = (body.sujet || '').trim();\nconst message = (body.message || '').trim();\n\nconst sujetsLabels = {\n  reservation: 'Réservation de table',\n  evenement: 'Événement privé / Privatisation',\n  presse: 'Presse & Médias',\n  partenariat: 'Partenariat & Producteurs',\n  autre: 'Autre demande'\n};\n\nconst sujetLabel = sujetsLabels[sujet] || sujet || 'Non précisé';\n\nconst dateReception = new Date().toLocaleDateString('fr-FR', {\n  weekday: 'long',\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric',\n  hour: '2-digit',\n  minute: '2-digit',\n  timeZone: 'Europe/Paris'\n});\n\nreturn [{\n  json: {\n    prenom,\n    nom,\n    email,\n    sujet,\n    sujetLabel,\n    message,\n    nomComplet: (prenom + ' ' + nom).trim(),\n    dateReception\n  }\n}];"
+      }
+    },
+    {
+      "id": "node-email-visiteur",
+      "name": "Email confirmation visiteur",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [760, 180],
+      "parameters": {
+        "fromEmail": "contact@comptoir-chef.fr",
+        "toEmail": "={{ $json.email }}",
+        "subject": "Votre message a bien été reçu — Le Comptoir du Chef",
+        "emailType": "html",
+        "message": "<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body style='background:#1a1a1a;margin:0;padding:40px 20px;font-family:Georgia,serif;'><div style='max-width:600px;margin:0 auto;background:#242424;border:1px solid rgba(201,168,76,0.3);border-radius:4px;overflow:hidden;'><div style='background:#1a1a1a;border-bottom:1px solid rgba(201,168,76,0.15);padding:32px 40px;text-align:center;'><p style='color:#c9a84c;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:0 0 8px;font-family:Georgia,serif;'>Restaurant Gastronomique · Paris</p><h1 style='color:#f5f0e8;font-size:26px;margin:0;font-weight:normal;font-family:Georgia,serif;'>Le Comptoir du Chef</h1><div style='width:40px;height:1px;background:#c9a84c;margin:16px auto 0;'></div></div><div style='padding:40px;'><p style='color:#c9a84c;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin:0 0 20px;'>Confirmation de réception</p><h2 style='color:#f5f0e8;font-weight:normal;font-size:21px;margin:0 0 20px;font-family:Georgia,serif;'>Bonjour {{ $json.prenom }},</h2><p style='color:#aaa;line-height:1.8;margin:0 0 16px;font-size:15px;'>Nous avons bien reçu votre message concernant : <strong style='color:#c9a84c;'>{{ $json.sujetLabel }}</strong></p><p style='color:#aaa;line-height:1.8;margin:0 0 24px;font-size:15px;'>Notre équipe vous répondra dans les meilleurs délais, sous <strong style='color:#f5f0e8;'>24 heures en jours ouvrés</strong>.</p><div style='background:rgba(201,168,76,0.07);border-left:3px solid #c9a84c;padding:16px 20px;margin:0 0 28px;border-radius:0 4px 4px 0;'><p style='color:#888;font-size:12px;margin:0 0 8px;letter-spacing:1px;text-transform:uppercase;'>Votre message</p><p style='color:#bbb;font-size:14px;line-height:1.7;margin:0;'>{{ $json.message }}</p></div><p style='color:#888;font-size:14px;line-height:1.8;margin:0 0 8px;'>Pour toute urgence, notre équipe est joignable :</p><p style='color:#f5f0e8;margin:0;font-size:15px;'><strong style='color:#c9a84c;'>+33 1 42 60 15 80</strong> &nbsp;&middot;&nbsp; Du mardi au samedi, 10h–22h30</p></div><div style='background:#1a1a1a;border-top:1px solid rgba(201,168,76,0.1);padding:24px 40px;text-align:center;'><p style='color:#555;font-size:12px;margin:0 0 4px;'>24 Rue de la Paix, 75001 Paris &nbsp;&middot;&nbsp; Métro Opéra</p><p style='margin:0;'><a href='mailto:contact@comptoir-chef.fr' style='color:#c9a84c;font-size:12px;text-decoration:none;'>contact@comptoir-chef.fr</a></p></div></div></body></html>",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": {
+          "id": "1",
+          "name": "SMTP — Comptoir du Chef"
+        }
+      }
+    },
+    {
+      "id": "node-email-restaurant",
+      "name": "Email notification restaurant",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [760, 420],
+      "parameters": {
+        "fromEmail": "noreply@comptoir-chef.fr",
+        "toEmail": "contact@comptoir-chef.fr",
+        "subject": "={{ '🔔 Nouveau message — ' + $json.sujetLabel + ' — ' + $json.nomComplet }}",
+        "emailType": "html",
+        "message": "<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body style='background:#f0f0f0;margin:0;padding:40px 20px;font-family:Arial,sans-serif;'><div style='max-width:600px;margin:0 auto;background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);'><div style='background:#1a1a1a;padding:24px 32px;border-bottom:4px solid #c9a84c;'><h2 style='color:#c9a84c;margin:0;font-size:12px;letter-spacing:3px;text-transform:uppercase;'>Nouveau message de contact</h2><p style='color:#888;margin:6px 0 0;font-size:13px;'>Le Comptoir du Chef — Formulaire site web</p></div><div style='padding:32px;'><table style='width:100%;border-collapse:collapse;font-size:14px;'><tr><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#999;width:130px;font-weight:bold;font-size:12px;text-transform:uppercase;letter-spacing:1px;'>Nom</td><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#111;font-size:16px;font-weight:bold;'>{{ $json.nomComplet }}</td></tr><tr><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#999;font-weight:bold;font-size:12px;text-transform:uppercase;letter-spacing:1px;'>Email</td><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;'><a href='mailto:{{ $json.email }}' style='color:#c9a84c;text-decoration:none;font-size:14px;'>{{ $json.email }}</a></td></tr><tr><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#999;font-weight:bold;font-size:12px;text-transform:uppercase;letter-spacing:1px;'>Sujet</td><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#333;font-size:14px;'><span style='background:#f9f3e3;color:#c9a84c;padding:3px 10px;border-radius:12px;font-size:13px;'>{{ $json.sujetLabel }}</span></td></tr><tr><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#999;font-weight:bold;font-size:12px;text-transform:uppercase;letter-spacing:1px;'>Date</td><td style='padding:12px 0;border-bottom:1px solid #f0f0f0;color:#888;font-size:13px;'>{{ $json.dateReception }}</td></tr><tr><td style='padding:16px 0 0;color:#999;font-weight:bold;font-size:12px;text-transform:uppercase;letter-spacing:1px;vertical-align:top;'>Message</td><td style='padding:16px 0 0;color:#333;font-size:14px;line-height:1.8;'>{{ $json.message }}</td></tr></table><div style='margin-top:32px;text-align:center;padding-top:24px;border-top:1px solid #f0f0f0;'><a href='mailto:{{ $json.email }}?subject=Re: {{ $json.sujetLabel }}&body=Bonjour {{ $json.prenom }},' style='display:inline-block;background:#c9a84c;color:white;padding:13px 30px;border-radius:4px;text-decoration:none;font-size:14px;font-weight:bold;letter-spacing:0.5px;'>Répondre à {{ $json.prenom }}</a></div></div><div style='background:#f9f9f9;border-top:1px solid #eee;padding:16px 32px;text-align:center;'><p style='color:#ccc;font-size:11px;margin:0;'>Notification automatique · Workflow n8n · Le Comptoir du Chef</p></div></div></body></html>",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": {
+          "id": "1",
+          "name": "SMTP — Comptoir du Chef"
+        }
+      }
+    },
+    {
+      "id": "node-respond",
+      "name": "Réponse succès",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1020, 300],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"success\": true, \"message\": \"Message bien reçu. Vous allez recevoir une confirmation par email.\" }",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Formulaire": {
+      "main": [
+        [
+          {
+            "node": "Préparer données",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Préparer données": {
+      "main": [
+        [
+          {
+            "node": "Email confirmation visiteur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email confirmation visiteur": {
+      "main": [
+        [
+          {
+            "node": "Email notification restaurant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email notification restaurant": {
+      "main": [
+        [
+          {
+            "node": "Réponse succès",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Paris"
+  }
+}

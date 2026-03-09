@@ -1,0 +1,24 @@
+# Fichiers Claude / config locale
+.claude/
+.claude_n8n/
+
+# Images et médias
+*.jpeg
+*.jpg
+*.png
+*.gif
+*.webp
+*.mp4
+*.mov
+
+# Fichiers temporaires
+*.tmp
+temp_*
+*_temp.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
