@@ -1,0 +1,194 @@
+/* ── Buttons ── */
+.btn-primary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--anthracite);
+  color: var(--warm-white);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+.btn-secondary {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--anthracite);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 0.5rem;
+  border-bottom: 1px solid var(--anthracite);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Custom cursor ── */
+.cursor {
+  position: fixed; top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(44,49,53,0.5);
+  border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.2s;
+}
+.cursor.hovered { width: 4px; height: 4px; background: var(--accent-dark); }
+.cursor-ring.hovered { width: 48px; height: 48px; border-color: var(--accent); }
+@media (hover: none) { .cursor, .cursor-ring { display: none; } }
+
+/* ── Page loader ── */
+.page-loader {
+  position: fixed; inset: 0;
+  background: var(--anthracite);
+  z-index: 99999;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.7s ease;
+}
+.page-loader.done { opacity: 0; pointer-events: none; }
+.loader-logo {
+  width: 110px; opacity: 0;
+  filter: brightness(0) invert(1);
+  animation: loader-appear 0.5s 0.2s ease forwards;
+}
+.loader-bar-wrap {
+  width: 140px; height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin-top: 2rem; overflow: hidden;
+}
+.loader-bar {
+  height: 100%; background: var(--accent); width: 0;
+  animation: loader-fill 1.3s 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.loader-txt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 0.62rem;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--steel); margin-top: 1.2rem;
+  opacity: 0; animation: loader-appear 0.5s 0.6s ease forwards;
+}
+@keyframes loader-appear { to { opacity: 1; } }
+@keyframes loader-fill { to { width: 100%; } }
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(18,20,22,0.97);
+  z-index: 8000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox-inner { position: relative; max-width: 90vw; max-height: 88vh; }
+.lightbox-img {
+  max-width: 90vw; max-height: 82vh;
+  object-fit: contain; display: block;
+  transform: scale(0.94);
+  transition: transform 0.3s;
+}
+.lightbox.open .lightbox-img { transform: scale(1); }
+.lightbox-close {
+  position: fixed; top: 1.5rem; right: 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--steel-light); background: none; border: none;
+  cursor: crosshair; display: flex; align-items: center; gap: 0.6rem;
+  transition: color 0.2s;
+}
+.lightbox-close::before { content: '✕'; font-size: 1rem; }
+.lightbox-close:hover { color: var(--warm-white); }
+.lightbox-caption {
+  margin-top: 1rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--steel); text-align: center;
+}
+.lightbox-nav {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  background: none; border: 1px solid rgba(255,255,255,0.15);
+  color: var(--steel-light); font-size: 1.2rem;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: crosshair; transition: border-color 0.2s, color 0.2s;
+}
+.lightbox-nav:hover { border-color: var(--accent); color: var(--accent); }
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
+
+/* ── Scroll to top ── */
+.scroll-top {
+  position: fixed; bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  background: var(--anthracite);
+  border: 1px solid rgba(200,169,110,0.25);
+  display: flex; align-items: center; justify-content: center;
+  cursor: crosshair; z-index: 500;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s, border-color 0.2s;
+  pointer-events: none;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.scroll-top:hover { background: var(--accent); border-color: var(--accent); }
+.scroll-top svg { width: 16px; height: 16px; stroke: var(--warm-white); fill: none; stroke-width: 2; }
+
+/* ── WhatsApp ── */
+.whatsapp-btn {
+  position: fixed; bottom: 5.5rem; right: 2rem;
+  width: 44px; height: 44px;
+  background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 500;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer; text-decoration: none;
+}
+.whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,0.5); }
+.whatsapp-btn svg { width: 22px; height: 22px; fill: white; }
+
+/* ── Footer ── */
+footer {
+  background: #1A1E21;
+  padding: 2.5rem 5rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo img { height: 32px; filter: brightness(0) invert(1) opacity(0.6); }
+.footer-copy {
+  font-size: 0.78rem; font-weight: 300;
+  letter-spacing: 0.06em; color: var(--steel);
+}
+.footer-mf {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 0.75rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.footer-mf::before { content: '🇫🇷'; font-size: 0.9rem; }
+.footer-social { display: flex; gap: 0.6rem; }
+.footer-social a {
+  width: 30px; height: 30px;
+  border: 1px solid rgba(200,169,110,0.2);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.footer-social a:hover { border-color: var(--accent); background: rgba(200,169,110,0.1); }
+.footer-social svg { width: 13px; height: 13px; stroke: var(--steel); fill: none; stroke-width: 1.5; transition: stroke 0.2s; }
+.footer-social a:hover svg { stroke: var(--accent); }

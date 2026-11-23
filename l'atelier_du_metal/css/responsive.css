@@ -1,0 +1,32 @@
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  #hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 3rem 1.5rem 2rem; }
+  .hero-right { height: 50vw; }
+  .hero-right-grid { grid-template-rows: 1fr; }
+  .hero-img-row { display: none; }
+
+  section { padding: 4rem 1.5rem; }
+
+  .sf-grid,
+  .laser-content,
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+  .val-grid { grid-template-columns: 1fr; }
+  .val-card { border-right: none; border-bottom: 1px solid rgba(44,49,53,0.1); }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .real-grid { grid-template-columns: 1fr 1fr; }
+  .real-item { grid-column: span 1 !important; grid-row: span 1 !important; aspect-ratio: 4/3 !important; }
+
+  .real-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+  .proc-steps { grid-template-columns: 1fr 1fr; }
+  .proc-step-arrow { display: none; }
+
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+}
