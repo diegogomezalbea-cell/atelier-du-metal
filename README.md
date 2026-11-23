@@ -1,15 +1,10 @@
-# Sites vitrines
+# L'Atelier du Métal by Gomez
 
-Deux projets web pour petites entreprises, en HTML, CSS et JavaScript.
+Site vitrine d'un fabricant français de présentoirs métalliques sur mesure, en HTML, CSS et JavaScript.
 
-| Projet | Description |
-|---|---|
-| `demo_newsletter` | Démo d une newsletter, formule Pro |
-| `l'atelier_du_metal` | Site vitrine de L Atelier du Métal by Gomez |
+## Lancer le projet
 
-## Lancer un projet
-
-Ouvrir le fichier `index.html` du dossier dans un navigateur.
+Ouvrir `l'atelier_du_metal/index.html` dans un navigateur.
 
 ## Contact
 
